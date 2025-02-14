@@ -5,6 +5,7 @@
         }
     },
     "require": {
-        "webonyx/graphql-php": "^15.19"
+        "webonyx/graphql-php": "^15.19",
+        "nikic/fast-route": "^1.3"
     }
 }
