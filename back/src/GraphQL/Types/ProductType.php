@@ -18,37 +18,37 @@ class ProductType extends ObjectType
 
                     'id' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Product::class, 'getId']
+                        'resolve' => fn(Product $p) => $p->getId()
                     ],
 
                     'name' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Product::class, 'getName']
+                        'resolve' => fn(Product $p) => $p->getName()
                     ],
 
                     'inStock' => [
                         'type' => Type::nonNull(Type::boolean()),
-                        'resolve' => [Product::class, 'isInStock']
+                        'resolve' => fn(Product $p) => $p->isInStock()
                     ],
 
                     'description' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Product::class, 'getDescription']
+                        'resolve' => fn(Product $p) => $p->getDescription()
                     ],
 
                     'brand' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Product::class, 'getBrand']
+                        'resolve' => fn(Product $p) => $p->getBrand()
                     ],
 
                     'category' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Product::class, 'getCategory']
+                        'resolve' => fn(Product $p) => $p->getCategory()
                     ],
 
                     'gallery' => [
                         'type' => Type::nonNull(Type::listOf(Type::string())),
-                        'resolve' => [Product::class, 'getGallery']
+                        'resolve' => fn(Product $p) => $p->getGallery()
                     ],
 
                     'attributes' => [

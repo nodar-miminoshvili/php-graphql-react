@@ -2,7 +2,7 @@
 
 namespace App\GraphQL\Types;
 
-
+use App\GraphQL\Resolvers\ProductResolver;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
@@ -16,13 +16,13 @@ class QueryType extends ObjectType
                 'products' => [
                     'type' => Type::listOf(GraphQLTypes::product()),
                     'args' => ['category' => Type::getNullableType(Type::string())],
-                    'resolve' => ''
+                    'resolve' => [ProductResolver::class, 'resolveProducts']
                 ],
 
                 'product' => [
                     'type' => GraphQLTypes::product(),
                     'args' => ['id' => Type::nonNull(Type::string())],
-                    'resolve' => ''
+                    'resolve' => [ProductResolver::class, 'resolveProduct']
                 ]
 
             ]

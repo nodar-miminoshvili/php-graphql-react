@@ -18,7 +18,12 @@ class Product
         $this->name = $row['name'];
         $this->inStock = $row['inStock'];
         $this->description = $row['description'];
+        $this->brand = $row['brand'];
         $this->category = $row['category'];
+
+        $galleryJSON = $row['gallery'];
+        $gallery = json_decode($galleryJSON, true);
+        $this->gallery = $gallery;
     }
 
     public function getId(): string
