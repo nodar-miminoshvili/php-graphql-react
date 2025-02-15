@@ -17,22 +17,22 @@ class PriceType extends ObjectType
                 return [
                     'id' => [
                         'type' => Type::nonNull(Type::id()),
-                        'resolve' => [Price::class, 'getId']
+                        'resolve' => fn(Price $p) => $p->getId()
                     ],
 
                     'productId' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Price::class, 'getProductId']
+                        'resolve' => fn(Price $p) => $p->getProductId()
                     ],
 
                     'amount' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Price::class, 'getAmount']
+                        'resolve' => fn(Price $p) => $p->getAmount()
                     ],
 
                     'currency' => [
                         'type' =>  Type::nonNull(GraphQLTypes::currency()),
-                        'resolve' => [Price::class, 'getCurrency']
+                        'resolve' => fn(Price $p) => $p->getCurrency()
                     ],
                 ];
             }

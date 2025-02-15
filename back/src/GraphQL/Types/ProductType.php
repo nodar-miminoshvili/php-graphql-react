@@ -2,7 +2,7 @@
 
 namespace App\GraphQL\Types;
 
-
+use App\GraphQL\Resolvers\PriceResolver;
 use App\Model\Product;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
@@ -58,7 +58,7 @@ class ProductType extends ObjectType
 
                     'prices' => [
                         'type' => Type::listOf(GraphQLTypes::price()),
-                        'resolve' => ''
+                        'resolve' => [PriceResolver::class, 'resolvePrice']
                     ]
                 ];
             }

@@ -17,12 +17,12 @@ class CurrencyType extends ObjectType
                 return [
                     'label' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Currency::class, 'getLabel']
+                        'resolve' => fn(Currency $c) => $c->getLabel()
                     ],
 
                     'symbol' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Currency::class, 'getSymbol']
+                        'resolve' => fn(Currency $c) => $c->getSymbol()
                     ],
                 ];
             }

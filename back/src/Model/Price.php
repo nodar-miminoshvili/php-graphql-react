@@ -14,7 +14,10 @@ class Price
         $this->id = $row['id'];
         $this->productId = $row['product_id'];
         $this->amount = $row['amount'];
-        $this->currency = $row['currency'];
+
+        $currencyJSON = $row['currency'];
+        $currency = json_decode($currencyJSON, true);
+        $this->currency = new Currency($currency);
     }
 
     public function getId(): int
