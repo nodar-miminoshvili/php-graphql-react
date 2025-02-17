@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Types;
 
+use App\GraphQL\Resolvers\CategoryResolver;
 use App\GraphQL\Resolvers\ProductResolver;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
@@ -23,6 +24,11 @@ class QueryType extends ObjectType
                     'type' => GraphQLTypes::product(),
                     'args' => ['id' => Type::nonNull(Type::string())],
                     'resolve' => [ProductResolver::class, 'resolveProduct']
+                ],
+
+                'categories' => [
+                    'type' => Type::listOf(GraphQLTypes::category()),
+                    'resolve' => [CategoryResolver::class, 'resolveCategory']
                 ]
 
             ]

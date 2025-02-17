@@ -11,8 +11,8 @@ class PriceResolver
     public static function resolvePrice(Product $product)
     {
         $productId = $product->getId();
-        $priceController = new PriceRepository();
-        $price = $priceController->getPrice($productId);
+        $priceRepo = new PriceRepository();
+        $price = $priceRepo->getPrice($productId);
 
         return $price;
     }

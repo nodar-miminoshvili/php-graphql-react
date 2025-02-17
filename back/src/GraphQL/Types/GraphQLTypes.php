@@ -31,4 +31,9 @@ class GraphQLTypes
     {
         return self::$types['priceType'] ??= new PriceType();
     }
+
+    public static function category()
+    {
+        return self::$types['categoryType'] ??= new CategoryType();
+    }
 }
