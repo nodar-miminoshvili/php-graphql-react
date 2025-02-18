@@ -4,6 +4,7 @@
 @theme {
   --color-primary: #1D1F22;
   --color-accent: #5ECE7B;
+  --color-underemphasize: #8D8F9A;
   --font-primary: "Raleway", serif;
 }
 
@@ -23,3 +24,10 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
   }
+
+.listing {
+  transition: box-shadow 0.35s;
+  &:hover {
+    box-shadow: 0 4px 35px 0 rgba(168, 172, 188, 0.19);
+  }
+}
