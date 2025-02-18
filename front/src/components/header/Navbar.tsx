@@ -3,7 +3,9 @@ import NavLink from "./NavLink";
 
 const GET_CATEGORIES = gql`
   query {
-    categories
+    categories {
+      name
+    }
   }
 `;
 
@@ -11,7 +13,6 @@ export default function Navbar() {
   const { data, error, loading } = useQuery<Categories>(GET_CATEGORIES);
 
   if (loading) return <p className="h-20">Loading...</p>;
-
   if (error) return <p>{error.message}</p>;
 
   return (
@@ -20,7 +21,7 @@ export default function Navbar() {
         <NavLink linkTo="" />
 
         {data?.categories.map((category) => (
-          <NavLink key={category} linkTo={category} />
+          <NavLink key={category.name} linkTo={category.name} />
         ))}
       </ul>
     </nav>

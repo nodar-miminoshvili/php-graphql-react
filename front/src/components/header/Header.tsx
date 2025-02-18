@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="relative flex justify-between">
+    <header className="relative flex justify-between px-5">
       <Navbar />
       <div className="self-center absolute w-1/12 left-1/2 -translate-x-1/2">
         <NavLink to="/" className={"block w-fit mx-auto"}>

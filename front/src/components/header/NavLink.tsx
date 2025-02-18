@@ -12,7 +12,10 @@ export default function NavLink({ linkTo }: { linkTo: string }) {
           isActive ? "text-accent" : "text-primary"
         }`}
       >
-        <RouterLink to={linkTo}>
+        <RouterLink
+          to={linkTo}
+          data-testid={isActive ? "active-category-link" : "category-link"}
+        >
           {linkTo !== "" ? linkTo.toUpperCase() : "ALL"}
         </RouterLink>
       </div>
