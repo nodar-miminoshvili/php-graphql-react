@@ -26,7 +26,7 @@ class PriceType extends ObjectType
                     ],
 
                     'amount' => [
-                        'type' => Type::nonNull(Type::string()),
+                        'type' => Type::nonNull(Type::float()),
                         'resolve' => fn(Price $p) => $p->getAmount()
                     ],
 

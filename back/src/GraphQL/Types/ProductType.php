@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Types;
 
+use App\GraphQL\Resolvers\AttributeResolver;
 use App\GraphQL\Resolvers\PriceResolver;
 use App\Model\Product;
 use GraphQL\Type\Definition\ObjectType;
@@ -51,9 +52,9 @@ class ProductType extends ObjectType
                         'resolve' => fn(Product $p) => $p->getGallery()
                     ],
 
-                    'attributes' => [
+                    'attributeSets' => [
                         'type' => Type::listOf(GraphQLTypes::attributeSet()),
-                        'resolve' => ''
+                        'resolve' => [AttributeResolver::class, 'resolveAttributes']
                     ],
 
                     'prices' => [

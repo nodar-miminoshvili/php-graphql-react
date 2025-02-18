@@ -4,8 +4,7 @@ namespace App\Model;
 
 class AttributeSet
 {
-    private int $pkey;
-    private string $id;
+    private int $id;
     private string $name;
     private string $type;
     private array $attributes = [];
@@ -13,18 +12,12 @@ class AttributeSet
 
     public function __construct(array $row)
     {
-        $this->pkey = $row['pkey'];
         $this->id = $row['id'];
         $this->name = $row['name'];
         $this->type = $row['type'];
     }
 
-    public  function getPkey(): int
-    {
-        return $this->pkey;
-    }
-
-    public  function getId(): string
+    public  function getId(): int
     {
         return $this->id;
     }

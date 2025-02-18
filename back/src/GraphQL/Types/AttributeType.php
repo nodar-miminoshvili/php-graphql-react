@@ -2,8 +2,7 @@
 
 namespace App\GraphQL\Types;
 
-
-use Attribute;
+use App\Model\Attribute;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
@@ -17,22 +16,22 @@ class AttributeType extends ObjectType
                 return [
                     'id' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Attribute::class, 'getId']
+                        'resolve' => fn(Attribute $attr) => $attr->getId()
                     ],
 
                     'setId' => [
                         'type' => Type::nonNull(Type::int()),
-                        'resolve' => [Attribute::class, 'getSetId']
+                        'resolve' => fn(Attribute $attr) => $attr->getSetId()
                     ],
 
                     'value' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Attribute::class, 'getValue']
+                        'resolve' => fn(Attribute $attr) => $attr->getValue()
                     ],
 
                     'displayValue' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [Attribute::class, 'getDisplayValue']
+                        'resolve' => fn(Attribute $attr) => $attr->getDisplayValue()
                     ],
 
                 ];

@@ -4,20 +4,20 @@ namespace App\Model;
 
 class ProductAttributeSet
 {
-    private int $pkey;
+    private int $id;
     private string $productId;
     private string $attributeSetId;
 
     public function __construct(array $row)
     {
-        $this->pkey = $row['pkey'];
+        $this->id = $row['id'];
         $this->productId = $row['product_id'];
         $this->attributeSetId = $row['attribute_set_id'];
     }
 
-    public function getPkey(): int
+    public function getId(): int
     {
-        return $this->pkey;
+        return $this->id;
     }
 
     public function getProductId(): string

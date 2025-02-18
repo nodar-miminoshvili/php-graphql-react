@@ -16,28 +16,24 @@ class AttributeSetType extends ObjectType
             'name' => 'AttributeSet',
             'fields' => function () {
                 return [
-                    'pkey' => [
-                        'type' => Type::nonNull(Type::id()),
-                        'resolve' => [AttributeSet::class, 'getPkey']
-                    ],
-
                     'id' => [
-                        'type' => Type::nonNull(Type::string()),
-                        'resolve' => [AttributeSet::class, 'getId']
+                        'type' => Type::nonNull(Type::id()),
+                        'resolve' => fn(AttributeSet $set) => $set->getId()
                     ],
 
                     'name' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [AttributeSet::class, 'getName']
+                        'resolve' => fn(AttributeSet $set) => $set->getName()
                     ],
 
                     'type' => [
                         'type' => Type::nonNull(Type::string()),
-                        'resolve' => [AttributeSet::class, 'getType']
+                        'resolve' => fn(AttributeSet $set) => $set->getType()
                     ],
 
                     'attributes' => [
                         'type' => Type::listOf(GraphQLTypes::attribute()),
+                        'resolve' => fn(AttributeSet $set) => $set->getAttributes()
                     ],
                 ];
             }
