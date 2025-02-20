@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { CartProvider } from "./contexts/CartContext.tsx";
 
 const client = new ApolloClient({
   uri: "http://localhost:8000/graphql",
@@ -12,7 +13,9 @@ const client = new ApolloClient({
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </ApolloProvider>
   </StrictMode>
 );

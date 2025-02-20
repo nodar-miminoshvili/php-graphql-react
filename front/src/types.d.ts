@@ -36,9 +36,25 @@ type ProductListing = {
     inStock: boolean,
     gallery: string[],
     prices: Price[],
-    attributeSets: AttributeSet[]
+    attributeSets: AttributeSet[] | []
 }
 
 type ProductListProducts = {
     products: ProductListing[]
 }
+
+type CartItem = {
+    defaultProperties: ProductListing, 
+    id: string, 
+    count: number
+}
+
+type Cart = CartItem[];
+
+type CartAction = 
+   | { type: "ADD_TO_CART"; payload: ProductListing }
+   | { type: "INCREMENT"; payload: string }
+   | { type: "DECREMENT"; payload: string }
+   | { type: "CLEAR_ALL"}
+
+

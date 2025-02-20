@@ -1,9 +1,10 @@
 import { NavLink as RouterLink, useParams } from "react-router-dom";
 
 export default function NavLink({ linkTo }: { linkTo: string }) {
-  const { category } = useParams();
+  const params = useParams();
   const isActive =
-    linkTo === category || (typeof category === "undefined" && linkTo === "");
+    linkTo === params.category ||
+    (Object.keys(params).length === 0 && linkTo === "");
 
   return (
     <li className="h-full flex flex-col">
