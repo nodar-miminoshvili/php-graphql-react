@@ -58,3 +58,11 @@ type CartAction =
    | { type: "CLEAR_ALL"}
 
 
+interface ProductFullDetails extends ProductListing {
+    brand: string,
+    description: string
+}
+
+type ProductFullDetailsQuery = {
+    product: ProductFullDetails;
+}
