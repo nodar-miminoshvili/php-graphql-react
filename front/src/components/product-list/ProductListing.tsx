@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import QuickShopButton from "./QuickShopButton";
 
 type PropsType = {
@@ -10,17 +10,14 @@ export default function ProductListing({ product }: PropsType) {
 
   return (
     <li className="listing p-4 mx-auto group">
-      <NavLink
-        to={`product/${product.id}`}
-        data-testid={`product-${product.id}`}
-      >
+      <Link to={`/product/${product.id}`} data-testid={`product-${product.id}`}>
         <div className="relative vava">
           <img
             src={product.gallery[0]}
             alt={product.name}
             className="w-[354px] h-[330px] object-contain"
           />
-          <QuickShopButton />
+          <QuickShopButton product={product} />
         </div>
         <div className="mt-6 text-lg">
           <p className="font-light">{product.name}</p>
@@ -29,7 +26,7 @@ export default function ProductListing({ product }: PropsType) {
             {price.amount}
           </p>
         </div>
-      </NavLink>
+      </Link>
     </li>
   );
 }
