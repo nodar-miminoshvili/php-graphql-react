@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProductPageAttributeSet from "../attribute-sets/ProductPageAttributeSet";
 import { useCartDispatch } from "../../hooks/useCartDispatch";
 import { useCartIsOpenDispatch } from "../../hooks/useCartIsOpenDispatch";
+import Description from "./Description";
 
 type Props = {
   product: ProductFullDetails;
@@ -22,7 +23,7 @@ export default function Details({ product }: Props) {
 
   return (
     <section className="min-w-68 max-w-84 px-4 flex flex-col justify-center">
-      <h1 className="text-3xl font-semibold pb-10">{product.name}</h1>
+      <p className="text-3xl font-semibold pb-10">{product.name}</p>
       <div className="flex flex-col gap-6 pb-9">
         {product.attributeSets.map((set) => {
           return (
@@ -57,9 +58,10 @@ export default function Details({ product }: Props) {
           cartIsOpenDispatch(true);
         }}
       >
-        ADD TO CART
+        {product.inStock ? "ADD TO CART" : "OUT OF STOCK"}
       </button>
-      <div className="pt-10 pb-5">{product.description}</div>
+
+      <Description description={product.description} />
     </section>
   );
 }
