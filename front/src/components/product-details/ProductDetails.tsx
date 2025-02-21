@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import Gallery from "./Gallery";
+import Details from "./Details";
 
 const GET_PRODUCT = gql`
   query ($id: String!) {
@@ -10,6 +11,7 @@ const GET_PRODUCT = gql`
       gallery
       inStock
       brand
+      description
       attributeSets {
         name
         id
@@ -50,11 +52,12 @@ export default function ProductDetails() {
   console.log(data, error);
   return (
     <section className="max-w-7xl mx-auto px-12 xl:px-0 pt-20">
-      <div>
+      <div className="flex gap-20">
         <Gallery
           gallery={data.product.gallery}
           productName={data.product.name}
         />
+        <Details product={data.product} />
       </div>
     </section>
   );

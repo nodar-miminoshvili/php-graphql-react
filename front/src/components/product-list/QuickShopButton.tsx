@@ -13,7 +13,7 @@ export default function QuickShopButton({ product }: Props) {
     absolute bottom-0 translate-y-1/2 right-4 cursor-pointer"
       onClick={(e) => {
         e.preventDefault();
-        cartDispatch({ payload: product, type: "ADD_TO_CART" });
+        cartDispatch({ payload: { product }, type: "ADD_TO_CART" });
       }}
     >
       <img src={CartIconWhite} />

@@ -6,15 +6,25 @@ export function capitalizeWord(word: string | undefined): string | null {
   return capitalizedWord;
 }
 
-export function generateCartItemId(item: ProductListing) {
+export function generateCartItemId(
+  item: ProductListing | ProductFullDetails,
+  selectedAttributes?: SelectedAttributes
+) {
   let generatedId = item.id;
-  let attributeSets = item.attributeSets;
 
-  if (attributeSets.length === 0) return generatedId;
+  if (!selectedAttributes) {
+    let attributeSets = item.attributeSets;
 
-  attributeSets.forEach((set) => {
-    generatedId = generatedId.concat("|").concat(set.attributes[0].id);
-  });
+    if (attributeSets.length === 0) return generatedId;
+    attributeSets.forEach((set) => {
+      generatedId = generatedId.concat("|").concat(set.attributes[0].id);
+    });
+  } else {
+    let attributes = Object.values(selectedAttributes);
+    attributes.forEach((attr) => {
+      generatedId = generatedId.concat("|").concat(attr);
+    });
+  }
 
   return generatedId;
 }

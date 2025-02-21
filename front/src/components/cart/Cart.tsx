@@ -13,13 +13,13 @@ export default function Cart() {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="absolute top-full right-0 bg-white w-81 px-4 py-7 z-10"
+      className="absolute top-full right-0 min-w-81 bg-white px-4 py-7 z-10"
     >
       <p className="font-medium">
         <span className="font-bold">My Bag, </span>
         {itemCount === 1 ? "1 item" : `${itemCount} items`}
       </p>
-      <ul className="flex flex-col gap-9 py-10 max-h-[900px] overflow-y-auto">
+      <ul className="flex flex-col gap-9 py-10 overflow-y-auto max-h-[calc(100svh-250px)]">
         {cart.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}

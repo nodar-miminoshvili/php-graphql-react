@@ -4,8 +4,9 @@ export default function cartReducer(cart: Cart, action: CartAction): Cart {
   switch (action.type) {
     case "ADD_TO_CART": {
       let cartCopy = [...cart];
-      const product = action.payload;
-      let generatedId = generateCartItemId(product);
+      const product = action.payload.product;
+      const attributes = action.payload.selectedAttributes
+      let generatedId = generateCartItemId(product,attributes);
       let count = 1;
 
       const existingItem = cartCopy.find((item) => {

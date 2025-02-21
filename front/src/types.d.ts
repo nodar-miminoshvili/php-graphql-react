@@ -52,7 +52,7 @@ type CartItem = {
 type Cart = CartItem[];
 
 type CartAction = 
-   | { type: "ADD_TO_CART"; payload: ProductListing }
+   | {type: "ADD_TO_CART"; payload: {product:ProductListing | ProductFullDetails,selectedAttributes?: SelectedAttributes}}
    | { type: "INCREMENT"; payload: string }
    | { type: "DECREMENT"; payload: string }
    | { type: "CLEAR_ALL"}
@@ -66,3 +66,7 @@ interface ProductFullDetails extends ProductListing {
 type ProductFullDetailsQuery = {
     product: ProductFullDetails;
 }
+
+type SelectedAttributes = { [index: number]: string }
+
+type SelectAttribute = (setId:number, attrId:string)=>void

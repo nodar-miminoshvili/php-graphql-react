@@ -29,7 +29,7 @@ export default function Gallery({ gallery, productName }: Props) {
           );
         })}
       </ul>
-      <div className="relative">
+      <div className="relative w-fit h-fit">
         <img
           src={gallery[selectedImage]}
           alt={productName}
