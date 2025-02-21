@@ -49,7 +49,7 @@ export default function Details({ product }: Props) {
           Object.keys(selectedAttributes).length !==
             product.attributeSets.length
         }
-        className="bg-accent text-white font-semibold py-3.5 w-full disabled:bg-gray-300/30"
+        className="bg-accent text-white font-semibold py-3.5 w-full cursor-pointer disabled:bg-gray-300/30 disabled:cursor-not-allowed"
         onClick={() => {
           cartDispatch({
             type: "ADD_TO_CART",

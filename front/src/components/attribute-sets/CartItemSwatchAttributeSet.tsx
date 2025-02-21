@@ -19,20 +19,15 @@ export default function CartItemSwatchAttributeSet({
       <p className="text-sm">{attributeSet.name}:</p>
       <ul className="flex items-center gap-1.5 text-sm font-sans py-1 px-1">
         {attributeSet.attributes.map((attr) => {
-          if (attr.id === selectedAttributeId) {
-            return (
-              <li
-                key={attr.id}
-                className="w-4 h-4 outline-2 outline-green-500"
-                style={{ backgroundColor: attr.value }}
-              ></li>
-            );
-          }
           return (
             <li
               key={attr.id}
-              className="w-4 h-4 border-1"
               style={{ backgroundColor: attr.value }}
+              className={`w-4 h-4 ${
+                attr.id === selectedAttributeId
+                  ? "outline-2 outline-green-500"
+                  : "border-1"
+              }`}
             ></li>
           );
         })}
