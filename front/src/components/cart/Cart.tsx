@@ -28,7 +28,7 @@ export default function Cart() {
         <span className="font-sans font-medium">Total</span>
         <span className="font-bold">${sumUpCartItemPrices(cart)}</span>
       </div>
-      <OrderButton isDisabled={itemCount === 0} />
+      <OrderButton isDisabled={itemCount === 0} cart={cart} />
     </div>
   );
 }

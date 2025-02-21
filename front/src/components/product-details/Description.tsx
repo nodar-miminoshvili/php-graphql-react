@@ -1,4 +1,5 @@
 import parse from "html-react-parser";
+
 export default function Description({ description }: { description: string }) {
   const decodedDescription = description.replace(
     /u([0-9A-Fa-f]{4})/g,
