@@ -10,7 +10,7 @@ export default function Gallery({ gallery, productName }: Props) {
   const [selectedImage, setSelectedImage] = useState(0);
 
   return (
-    <div className="flex gap-10">
+    <div data-testid="product-gallery" className="flex gap-10">
       <ul className="flex flex-col gap-4 max-h-[500px] overflow-y-auto w-fit">
         {gallery.map((imageSrc, idx) => {
           return (

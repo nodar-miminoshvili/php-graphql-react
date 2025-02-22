@@ -49,7 +49,7 @@ export default function ProductDetails() {
 
   if (!data) throw new Error("Couldn't Fetch Product Details");
 
-  console.log(data, error);
+  console.error(error);
   return (
     <section className="max-w-7xl mx-auto px-12 xl:px-0 pt-20">
       <div className="flex gap-20">

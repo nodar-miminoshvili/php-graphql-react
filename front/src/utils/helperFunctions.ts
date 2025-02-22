@@ -68,3 +68,7 @@ export function matchSelectedAttribute(
 
   return selectedAttributeId;
 }
+
+export function toKebabCase(str: string) {
+  return str.split(" ").join("-").toLocaleLowerCase();
+}

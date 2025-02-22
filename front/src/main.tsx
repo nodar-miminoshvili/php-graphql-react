@@ -6,7 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { CartProvider } from "./contexts/CartContext.tsx";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8000/graphql",
+  uri: import.meta.env.VITE_BACKEND_URL,
   cache: new InMemoryCache(),
 });
 

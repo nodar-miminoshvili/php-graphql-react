@@ -7,7 +7,10 @@ export default function Description({ description }: { description: string }) {
   );
 
   return (
-    <div className="mt-10 mb-5 pb-5 max-h-44 overflow-y-auto">
+    <div
+      data-testid="product-description"
+      className="mt-10 mb-5 pb-5 max-h-44 overflow-y-auto"
+    >
       {parse(decodedDescription)}
     </div>
   );

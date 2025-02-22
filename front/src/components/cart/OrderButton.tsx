@@ -18,7 +18,6 @@ export default function OrderButton({ isDisabled, cart }: Props) {
 
   useEffect(() => {
     if (data && data.createOrder) cartDispatch({ type: "CLEAR_ALL" });
-    console.log(data);
   }, [data]);
 
   if (error) throw new Error("Error While Processing Order :(");

@@ -28,7 +28,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(cart);
   }, [cart]);
 
   return (

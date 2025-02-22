@@ -26,6 +26,7 @@ export default function CartItem({ item }: Props) {
       </div>
       <div className="flex flex-col justify-between items-center">
         <button
+          data-testid="cart-item-amount-increase"
           onClick={() => {
             cartDispatch({ type: "INCREMENT", payload: item.id });
           }}
@@ -35,6 +36,7 @@ export default function CartItem({ item }: Props) {
         </button>
         <span>{item.count}</span>
         <button
+          data-testid="cart-item-amount-decrease"
           onClick={() => {
             cartDispatch({ type: "DECREMENT", payload: item.id });
           }}

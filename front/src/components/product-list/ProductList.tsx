@@ -45,8 +45,6 @@ export default function ProductList() {
   if (typeof data?.products === "undefined")
     throw new Error("Category is Empty :(");
 
-  console.log(data);
-
   return (
     <>
       <h1 className="mt-20 mb-26.5 text-[42px] px-5">

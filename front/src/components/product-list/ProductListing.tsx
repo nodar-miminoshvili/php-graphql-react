@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import QuickShopButton from "./QuickShopButton";
+import { toKebabCase } from "../../utils/helperFunctions";
 
 type PropsType = {
   product: ProductListing;
@@ -10,7 +11,10 @@ export default function ProductListing({ product }: PropsType) {
 
   return (
     <li className="listing p-4 mx-auto group">
-      <Link to={`/product/${product.id}`} data-testid={`product-${product.id}`}>
+      <Link
+        to={`/product/${product.id}`}
+        data-testid={`product-${toKebabCase(product.id)}`}
+      >
         <div className="relative vava">
           <img
             src={product.gallery[0]}

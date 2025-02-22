@@ -11,6 +11,7 @@ export default function CartButton({ toggleCartState }: Props) {
 
   return (
     <button
+      data-testid="cart-btn"
       onClick={(e) => {
         e.stopPropagation();
         toggleCartState();

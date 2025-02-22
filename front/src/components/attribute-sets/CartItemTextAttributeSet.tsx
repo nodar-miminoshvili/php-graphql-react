@@ -1,4 +1,7 @@
-import { matchSelectedAttribute } from "../../utils/helperFunctions";
+import {
+  matchSelectedAttribute,
+  toKebabCase,
+} from "../../utils/helperFunctions";
 
 type Props = {
   attributeSet: AttributeSet;
@@ -17,10 +20,22 @@ export default function CartItemTextAttributeSet({
   return (
     <div className="mt-3">
       <p className="text-sm">{attributeSet.name}:</p>
-      <ul className="flex items-center gap-1.5 text-sm font-sans py-1">
+      <ul
+        data-testid={`cart-item-attribute-${toKebabCase(attributeSet.name)}`}
+        className="flex items-center gap-1.5 text-sm font-sans py-1"
+      >
         {attributeSet.attributes.map((attr) => {
           return (
             <li
+              data-testid={
+                attr.id === selectedAttributeId
+                  ? `cart-item-attribute-${toKebabCase(
+                      attributeSet.name
+                    )}-${toKebabCase(attr.id)}-selected`
+                  : `cart-item-attribute-${toKebabCase(
+                      attributeSet.name
+                    )}-${toKebabCase(attr.id)}`
+              }
               key={attr.id}
               className={`min-w-6 min-h-6 px-1 border-1 border-primary grid place-content-center ${
                 attr.id === selectedAttributeId ? "bg-primary text-white" : ""

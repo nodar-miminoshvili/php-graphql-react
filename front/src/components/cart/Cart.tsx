@@ -17,7 +17,9 @@ export default function Cart() {
     >
       <p className="font-medium">
         <span className="font-bold">My Bag, </span>
-        {itemCount === 1 ? "1 item" : `${itemCount} items`}
+        <span data-testid="cart-item-amount">
+          {itemCount === 1 ? "1 item" : `${itemCount} items`}
+        </span>
       </p>
       <ul className="flex flex-col gap-9 py-10 overflow-y-auto max-h-[calc(100svh-250px)]">
         {cart.map((item) => (
@@ -26,7 +28,9 @@ export default function Cart() {
       </ul>
       <div className="flex justify-between pb-7">
         <span className="font-sans font-medium">Total</span>
-        <span className="font-bold">${sumUpCartItemPrices(cart)}</span>
+        <span data-testid="cart-total" className="font-bold">
+          ${sumUpCartItemPrices(cart)}
+        </span>
       </div>
       <OrderButton isDisabled={itemCount === 0} cart={cart} />
     </div>

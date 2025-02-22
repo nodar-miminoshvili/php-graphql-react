@@ -44,6 +44,7 @@ export default function Details({ product }: Props) {
         </div>
       </div>
       <button
+        data-testid="add-to-cart"
         disabled={
           !product.inStock ||
           Object.keys(selectedAttributes).length !==
