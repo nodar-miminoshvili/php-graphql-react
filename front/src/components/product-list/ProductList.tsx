@@ -1,36 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { GET_PRODUCTS } from "../../graphql/queries";
 import ProductListing from "./ProductListing";
 import OutOfStockProductListing from "./OutOfStockProductListing";
 import { capitalizeWord } from "../../utils/helperFunctions";
-
-const GET_PRODUCTS = gql`
-  query ($category: String!) {
-    products(category: $category) {
-      id
-      name
-      gallery
-      inStock
-      attributeSets {
-        name
-        id
-        type
-        attributes {
-          id
-          value
-          displayValue
-        }
-      }
-      prices {
-        amount
-        currency {
-          label
-          symbol
-        }
-      }
-    }
-  }
-`;
 
 export default function ProductList() {
   const { category } = useParams();

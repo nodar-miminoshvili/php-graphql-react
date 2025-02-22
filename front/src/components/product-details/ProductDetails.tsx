@@ -1,37 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { GET_PRODUCT } from "../../graphql/queries";
 import Gallery from "./Gallery";
 import Details from "./Details";
-
-const GET_PRODUCT = gql`
-  query ($id: String!) {
-    product(id: $id) {
-      id
-      name
-      gallery
-      inStock
-      brand
-      description
-      attributeSets {
-        name
-        id
-        type
-        attributes {
-          id
-          value
-          displayValue
-        }
-      }
-      prices {
-        amount
-        currency {
-          label
-          symbol
-        }
-      }
-    }
-  }
-`;
 
 export default function ProductDetails() {
   const { productId } = useParams();

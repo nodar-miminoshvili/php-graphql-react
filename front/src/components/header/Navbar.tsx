@@ -1,13 +1,6 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_CATEGORIES } from "../../graphql/queries";
 import NavLink from "./NavLink";
-
-const GET_CATEGORIES = gql`
-  query {
-    categories {
-      name
-    }
-  }
-`;
 
 export default function Navbar() {
   const { data, error, loading } = useQuery<Categories>(GET_CATEGORIES);
