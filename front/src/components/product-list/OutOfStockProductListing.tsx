@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toKebabCase } from "../../utils/helperFunctions";
 
 type PropsType = {
   product: ProductListing;
@@ -9,7 +10,10 @@ export default function OutOfStockProductListing({ product }: PropsType) {
 
   return (
     <li className="listing p-4 mx-auto">
-      <Link to={`/product/${product.id}`} data-testid={`product-${product.id}`}>
+      <Link
+        to={`/product/${product.id}`}
+        data-testid={`product-${toKebabCase(product.name)}`}
+      >
         <div className="w-[354px] h-[330px] relative">
           <img
             src={product.gallery[0]}

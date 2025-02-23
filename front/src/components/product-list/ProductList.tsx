@@ -8,7 +8,7 @@ import { capitalizeWord } from "../../utils/helperFunctions";
 export default function ProductList() {
   const { category } = useParams();
   const { data, loading, error } = useQuery<ProductListProducts>(GET_PRODUCTS, {
-    variables: { category: category || "" },
+    variables: { category: category || "all" },
   });
 
   if (loading) return <p>Loading</p>;
@@ -21,7 +21,7 @@ export default function ProductList() {
   return (
     <>
       <h1 className="mt-20 mb-26.5 text-[42px] px-5">
-        {capitalizeWord(category) || "All Products"}
+        {capitalizeWord(category) || "All"}
       </h1>
 
       <ul className="grid gap-y-23 grid-cols-3">

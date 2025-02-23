@@ -22,6 +22,9 @@ export default function ProductPageTextAttributeSet({
           return (
             <li key={attr.id}>
               <button
+                data-testid={`product-attribute-${toKebabCase(
+                  attributeSet.name
+                )}-${attr.displayValue}`}
                 onClick={() => {
                   selectAttribute(attributeSet.id, attr.id);
                 }}

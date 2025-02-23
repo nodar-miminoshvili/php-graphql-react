@@ -31,10 +31,10 @@ export default function CartItemTextAttributeSet({
                 attr.id === selectedAttributeId
                   ? `cart-item-attribute-${toKebabCase(
                       attributeSet.name
-                    )}-${toKebabCase(attr.id)}-selected`
+                    )}-${toKebabCase(attr.value)}-selected`
                   : `cart-item-attribute-${toKebabCase(
                       attributeSet.name
-                    )}-${toKebabCase(attr.id)}`
+                    )}-${toKebabCase(attr.value)}`
               }
               key={attr.id}
               className={`min-w-6 min-h-6 px-1 border-1 border-primary grid place-content-center ${

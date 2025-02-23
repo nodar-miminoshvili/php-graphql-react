@@ -31,10 +31,10 @@ export default function CartItemSwatchAttributeSet({
                 attr.id === selectedAttributeId
                   ? `cart-item-attribute-${toKebabCase(
                       attributeSet.name
-                    )}-${toKebabCase(attr.id)}-selected`
+                    )}-${toKebabCase(attr.value)}-selected`
                   : `cart-item-attribute-${toKebabCase(
                       attributeSet.name
-                    )}-${toKebabCase(attr.id)}`
+                    )}-${toKebabCase(attr.value)}`
               }
               key={attr.id}
               style={{ backgroundColor: attr.value }}

@@ -4,7 +4,7 @@ export default function NavLink({ linkTo }: { linkTo: string }) {
   const params = useParams();
   const isActive =
     linkTo === params.category ||
-    (Object.keys(params).length === 0 && linkTo === "");
+    (Object.keys(params).length === 0 && linkTo === "all");
 
   return (
     <li className="h-full flex flex-col">
@@ -17,7 +17,7 @@ export default function NavLink({ linkTo }: { linkTo: string }) {
           to={linkTo}
           data-testid={isActive ? "active-category-link" : "category-link"}
         >
-          {linkTo !== "" ? linkTo.toUpperCase() : "ALL"}
+          {linkTo.toUpperCase()}
         </RouterLink>
       </div>
       <div

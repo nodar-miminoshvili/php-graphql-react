@@ -25,7 +25,7 @@ export default function Header() {
         <header className="max-w-7xl mx-auto relative flex justify-between px-5">
           <Navbar />
           <div className="self-center absolute w-1/12 left-1/2 -translate-x-1/2">
-            <NavLink to="/" className={"block w-fit mx-auto"}>
+            <NavLink to="/all" className={"block w-fit mx-auto"}>
               <img src={Logo} alt="logo" />
             </NavLink>
           </div>

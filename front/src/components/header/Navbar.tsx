@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <nav className="h-20 font-semibold tracking-wide font-primary">
       <ul className="flex gap-12 h-full">
-        <NavLink linkTo="" />
+        <NavLink linkTo="all" />
 
         {data?.categories.map((category) => (
           <NavLink key={category.name} linkTo={category.name} />

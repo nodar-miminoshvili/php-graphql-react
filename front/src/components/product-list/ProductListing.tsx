@@ -13,7 +13,7 @@ export default function ProductListing({ product }: PropsType) {
     <li className="listing p-4 mx-auto group">
       <Link
         to={`/product/${product.id}`}
-        data-testid={`product-${toKebabCase(product.id)}`}
+        data-testid={`product-${toKebabCase(product.name)}`}
       >
         <div className="relative vava">
           <img
