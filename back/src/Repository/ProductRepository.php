@@ -11,10 +11,14 @@ class ProductRepository extends Repository
     {
         if (NULL == $this->connection) return [];
 
-        $sql = "SELECT * FROM product WHERE category = :category OR :category = ''";
+        $getAll = $category === 'all';
+
+        $sql = !$getAll
+            ? "SELECT * FROM product WHERE category = :category"
+            : "SELECT * FROM product";
 
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam('category', $category);
+        !$getAll && $stmt->bindParam('category', $category);
         $stmt->execute();
         $products = [];
 
